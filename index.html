@@ -220,8 +220,34 @@
         transform: translateY(-6px);
       }
     }
+
+  /* Decorated School Header Frame & Logo Halo */
+    .header-festive-shell {
+      position: relative;
+      background: linear-gradient(135deg, rgba(253, 224, 71, 0.55), rgba(244, 114, 182, 0.45), rgba(56, 189, 248, 0.45));
+      padding: 2px;
+      border-radius: 1.75rem;
+      box-shadow:
+        0 18px 40px -12px rgba(8, 4, 24, 0.7),
+        0 0 24px rgba(253, 224, 71, 0.18);
+    }
+
+  .header-festive-inner {
+      background: linear-gradient(160deg, rgba(44, 21, 96, 0.92) 0%, rgba(25, 13, 64, 0.95) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: calc(1.75rem - 2px);
+    }
+
+    .logo-halo {
+      box-shadow:
+        0 0 0 4px rgba(253, 224, 71, 0.25),
+        0 0 22px rgba(244, 114, 182, 0.4);
+    }
   </style>
 </head>
+
+
 <body class="font-sans antialiased selection:bg-amber-300 selection:text-indigo-950 flex flex-col justify-between min-h-screen relative">
 
   <!-- Ambient Festive Glow Layer -->
@@ -250,20 +276,40 @@
 
     <!-- Top School Identity Crest Pill -->
     <header class="text-center mb-5 sm:mb-6 w-full">
-      <div class="inline-flex flex-col items-center gap-1.5 px-5 py-2.5 rounded-3xl bg-white/10 border border-amber-300/35 backdrop-blur-md shadow-lg">
-        <!-- Decorative Rainbow Arc SVG -->
-        <svg class="w-12 h-6" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M8 36C8 18.3269 22.3269 4 40 4C57.6731 4 72 18.3269 72 36" stroke="#FF595E" stroke-width="4" stroke-linecap="round"/>
-          <path d="M14 36C14 21.6406 25.6406 10 40 10C54.3594 10 66 21.6406 66 36" stroke="#FFCA3A" stroke-width="4" stroke-linecap="round"/>
-          <path d="M20 36C20 24.9543 28.9543 16 40 16C51.0457 16 60 24.9543 60 36" stroke="#8AC926" stroke-width="4" stroke-linecap="round"/>
-          <path d="M26 36C26 28.268 32.268 22 40 22C47.732 22 54 28.268 54 36" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-        <span class="text-xs sm:text-sm font-bold tracking-[0.18em] text-amber-300 uppercase">
-          RAINBOW WORLD SCHOOL
-        </span>
-        <span class="text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-pink-200 uppercase">
-          PLAY WAY WING · THURAL
-        </span>
+      <div class="header-festive-shell w-full sm:w-auto inline-block">
+        <div class="header-festive-inner relative flex flex-col items-center gap-2.5 px-6 sm:px-8 py-4 sm:py-5 w-full sm:w-auto overflow-hidden">
+
+          <!-- Subtle Corner Accents -->
+          <span class="absolute top-2.5 left-3.5 text-amber-300/75 text-xs select-none" aria-hidden="true">✦</span>
+          <span class="absolute top-2.5 right-3.5 text-pink-300/75 text-xs select-none" aria-hidden="true">✦</span>
+
+          <!-- School Logo Slot (Save your logo image as 'logo.png' in the same folder) -->
+          <div class="logo-halo w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white p-1.5 border-2 border-amber-300 flex items-center justify-center overflow-hidden">
+            <img
+              src="logo.png"
+              alt="Rainbow World School Logo"
+              class="w-full h-full object-contain rounded-full"
+              onerror="this.onerror=null; this.src='https://placehold.co/200x200/ffffff/3d1d7a?text=LOGO';"
+            />
+          </div>
+
+          <div>
+            <h2 class="font-fredoka text-xl sm:text-2xl md:text-3xl font-bold tracking-wider text-amber-300 uppercase drop-shadow">
+              RAINBOW WORLD SCHOOL
+            </h2>
+
+            <!-- Decorative Gold-Pink Divider -->
+            <div class="flex items-center justify-center gap-2 my-1" aria-hidden="true">
+              <span class="h-[1.5px] w-8 rounded-full bg-gradient-to-r from-transparent to-amber-300/80"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
+              <span class="h-[1.5px] w-8 rounded-full bg-gradient-to-l from-transparent to-amber-300/80"></span>
+            </div>
+
+            <p class="text-xs sm:text-sm font-bold tracking-[0.22em] text-pink-200 uppercase">
+              PLAY WAY WING · THURAL
+            </p>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -313,14 +359,14 @@
         </p>
       </div>
 
-      <!-- Date, Time & Venue Pill -->
+      <!--  Date, Time & Venue Pill 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-sky-100 bg-indigo-950/50 border border-sky-300/25 rounded-2xl px-4 py-3 mb-6">
         <span class="font-semibold text-amber-300">📅 29 November 2026</span>
         <span class="hidden sm:inline text-white/30">•</span>
         <span class="font-medium">⏰ 10:30 AM onwards</span>
         <span class="hidden sm:inline text-white/30">•</span>
         <span class="font-medium text-pink-200">📍 School Auditorium, Thural</span>
-      </div>
+      </div> -->
 
       <!-- Festive Highlights Strip -->
       <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-amber-100/90 mb-6">
