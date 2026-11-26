@@ -1,0 +1,571 @@
+                                                                                                                                          <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Welcome to Anugoonj 2026–27 · Rainbow World School, Play Way Wing, Thural</title>
+  <meta name="description" content="Welcome to Anugoonj 2026–27! Live arrival greeting for Dear Parents at Rainbow World School, Play Way Wing, Thural." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Fredoka, Playfair Display & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tone.js CDN for Celebratory Chime -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fredoka: ['Fredoka', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Warm, Joyful Pastel-and-Festive Play Way Wing Backdrop */
+    body {
+      background: radial-gradient(circle at 18% 15%, #3d1d7a 0%, #241459 45%, #120b38 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Animated Aurora / Pastel Rainbow Ambient Glow */
+    .ambient-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(253, 224, 71, 0.24) 0%, transparent 45%),
+        radial-gradient(circle at 14% 78%, rgba(244, 114, 182, 0.24) 0%, transparent 45%),
+        radial-gradient(circle at 82% 82%, rgba(45, 212, 191, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 48% 45%, rgba(125, 211, 252, 0.20) 0%, transparent 55%);
+      animation: pulseGlow 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        opacity: 0.78;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.07);
+      }
+    }
+
+    /* Twinkling Sparkles */
+    .sparkle-dot {
+      position: absolute;
+      border-radius: 9999px;
+      background: radial-gradient(circle, #ffffff 0%, #fde047 65%, transparent 100%);
+      box-shadow: 0 0 10px rgba(253, 224, 71, 0.85);
+      pointer-events: none;
+      animation: twinkle ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.15;
+        transform: scale(0.6);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+
+    /* Floating Balloons */
+    .balloon-wrapper {
+      position: fixed;
+      bottom: -140px;
+      z-index: 5;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      will-change: transform;
+    }
+
+    .balloon-sway {
+      animation: sway ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.92);
+        opacity: 0;
+      }
+      8% {
+        opacity: 0.95;
+      }
+      90% {
+        opacity: 0.92;
+      }
+      100% {
+        transform: translateY(-122vh) scale(1.05);
+        opacity: 0;
+      }
+    }
+
+    @keyframes sway {
+      0% {
+        transform: translateX(-14px) rotate(-5deg);
+      }
+      100% {
+        transform: translateX(14px) rotate(5deg);
+      }
+    }
+
+    /* Shimmering Rainbow-Gold Title Text */
+    .shimmer-title {
+      background: linear-gradient(
+        110deg,
+        #fde047 0%,
+        #ffffff 25%,
+        #f472b6 50%,
+        #38bdf8 75%,
+        #fde047 100%
+      );
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShimmer 5.5s linear infinite;
+    }
+
+    @keyframes textShimmer {
+      to {
+        background-position: 220% center;
+      }
+    }
+
+    /* Glassmorphic Welcome Card */
+    .welcome-card {
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(253, 224, 71, 0.35);
+      box-shadow:
+        0 25px 60px -15px rgba(9, 5, 28, 0.72),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    /* Celebratory Button Pulse & Sheen */
+    .celebrate-btn {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f59e0b 0%, #ec4899 52%, #8b5cf6 100%);
+      box-shadow: 0 12px 28px -6px rgba(236, 72, 153, 0.55);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+    }
+
+    .celebrate-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 34px -6px rgba(245, 158, 11, 0.65);
+    }
+
+    .celebrate-btn:active {
+      transform: scale(0.97);
+    }
+
+    .celebrate-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 45%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.42) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      animation: btnSheen 3.8s infinite;
+    }
+
+    @keyframes btnSheen {
+      0%, 55% {
+        left: -60%;
+      }
+      100% {
+        left: 140%;
+      }
+    }
+
+    /* Gentle Bouncing Icon */
+    .bounce-slow {
+      animation: bounceSlow 2.6s ease-in-out infinite;
+    }
+
+    @keyframes bounceSlow {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-amber-300 selection:text-indigo-950 flex flex-col justify-between min-h-screen relative">
+
+  <!-- Ambient Festive Glow Layer -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Twinkling Sparkles Layer -->
+  <div id="sparkle-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true"></div>
+
+  <!-- Floating Balloons Layer -->
+  <div id="balloon-container" class="fixed inset-0 pointer-events-none z-10 overflow-hidden" aria-hidden="true"></div>
+
+  <!-- Celebratory Floating Toast Banner -->
+  <div id="celebrate-toast" role="status" aria-live="polite"
+       class="fixed top-4 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-4 transition-all duration-300 w-[92%] max-w-sm">
+    <div class="bg-gradient-to-r from-amber-400 via-pink-500 to-indigo-600 p-[1.5px] rounded-full shadow-2xl">
+      <div class="bg-[#180f42]/95 backdrop-blur-md px-5 py-2.5 rounded-full text-center">
+        <p id="toast-message" class="font-fredoka text-sm sm:text-base font-semibold text-amber-200 tracking-wide">
+          Welcome to Anugoonj 2026–27! 🎊
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="relative z-20 flex-1 flex flex-col items-center justify-center px-4 py-7 sm:py-10 w-full max-w-2xl mx-auto">
+
+    <!-- Top School Identity Crest Pill -->
+    <header class="text-center mb-5 sm:mb-6 w-full">
+      <div class="inline-flex flex-col items-center gap-1.5 px-5 py-2.5 rounded-3xl bg-white/10 border border-amber-300/35 backdrop-blur-md shadow-lg">
+        <!-- Decorative Rainbow Arc SVG -->
+        <svg class="w-12 h-6" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 36C8 18.3269 22.3269 4 40 4C57.6731 4 72 18.3269 72 36" stroke="#FF595E" stroke-width="4" stroke-linecap="round"/>
+          <path d="M14 36C14 21.6406 25.6406 10 40 10C54.3594 10 66 21.6406 66 36" stroke="#FFCA3A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M20 36C20 24.9543 28.9543 16 40 16C51.0457 16 60 24.9543 60 36" stroke="#8AC926" stroke-width="4" stroke-linecap="round"/>
+          <path d="M26 36C26 28.268 32.268 22 40 22C47.732 22 54 28.268 54 36" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="text-xs sm:text-sm font-bold tracking-[0.18em] text-amber-300 uppercase">
+          RAINBOW WORLD SCHOOL
+        </span>
+        <span class="text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-pink-200 uppercase">
+          PLAY WAY WING · THURAL
+        </span>
+      </div>
+    </header>
+
+    <!-- Primary Live Arrival Greeting Card -->
+    <section class="welcome-card rounded-[2rem] p-6 sm:p-10 w-full text-center relative overflow-hidden">
+
+      <!-- Decorative Corner Stars -->
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-400/20 border border-emerald-300/40 text-emerald-200 text-xs font-semibold tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Live Venue Welcome · QR Check-In
+        </span>
+      </div>
+
+      <!-- Warm Arrival Headline -->
+      <p class="font-fredoka text-lg sm:text-2xl font-semibold text-amber-200 mb-1">
+        A Warm Welcome, Dear Parents! 🌟
+      </p>
+
+      <!-- Event Title: Anugoonj -->
+      <h1 class="font-fredoka text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight shimmer-title py-1 leading-tight">
+        Anugoonj
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="font-serif italic text-lg sm:text-2xl text-pink-200 mt-1 mb-3">
+        “Voice of Young Rainbowites”
+      </p>
+
+      <!-- Annual Function Badge -->
+      <div class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-400/25 via-pink-500/25 to-sky-400/25 border border-amber-300/40 mb-6">
+        <span class="text-xs sm:text-sm font-bold tracking-[0.2em] text-amber-200 uppercase">
+          ANNUAL FUNCTION 2026–27
+        </span>
+      </div>
+
+      <!-- Heartfelt On-Site Greeting Message -->
+      <div class="bg-white/10 rounded-2xl p-4 sm:p-6 border border-white/15 mb-6 space-y-3 text-left sm:text-center">
+        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-medium">
+          <span class="text-amber-300 font-semibold">We are so happy you are here today!</span> Thank you for gracing our venue with your presence and love.
+        </p>
+        <p class="text-sm sm:text-base text-indigo-100/90 leading-relaxed">
+          Today is a joyful celebration of our little Play Way stars—their boundless imagination, innocent smiles, talents, and first big steps on stage.
+        </p>
+        <p class="font-fredoka text-base sm:text-lg text-amber-200 pt-1">
+          Sit back, smile, cheer loud, and enjoy the show! ✨
+        </p>
+      </div>
+
+      <!-- Date, Time & Venue Pill -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-sky-100 bg-indigo-950/50 border border-sky-300/25 rounded-2xl px-4 py-3 mb-6">
+        <span class="font-semibold text-amber-300">📅 29 November 2026</span>
+        <span class="hidden sm:inline text-white/30">•</span>
+        <span class="font-medium">⏰ 10:30 AM onwards</span>
+        <span class="hidden sm:inline text-white/30">•</span>
+        <span class="font-medium text-pink-200">📍 School Auditorium, Thural</span>
+      </div>
+
+      <!-- Festive Highlights Strip -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-amber-100/90 mb-6">
+        <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15">🎈 Balloons</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15">✨ Sparkles</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15">🎊 Confetti</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15">🌈 Little Stars</span>
+      </div>
+
+      <!-- Primary Interactive Celebration Button -->
+      <div class="flex flex-col items-center">
+        <button id="btn-celebrate" type="button"
+                class="celebrate-btn w-full sm:w-auto px-8 py-4 rounded-2xl font-fredoka text-lg sm:text-xl font-bold text-white tracking-wide flex items-center justify-center gap-2.5 cursor-pointer focus:outline-none focus:ring-4 focus:ring-amber-300/60">
+          <span class="bounce-slow text-2xl" aria-hidden="true">🎉</span>
+          <span>Let's Celebrate!</span>
+          <span class="text-xl" aria-hidden="true">✨</span>
+        </button>
+        <p class="text-[11px] sm:text-xs text-indigo-200/75 mt-2.5">
+          Tap the button to launch balloons, music &amp; confetti!
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-20 text-center px-4 py-4 text-xs text-indigo-200/75">
+    <p class="font-medium">
+      With Warm Regards · <span class="text-amber-300 font-semibold">Rainbow World School, Play Way Wing, Thural</span>
+    </p>
+    <p class="text-[11px] text-indigo-200/55 mt-0.5">
+      Anugoonj 2026–27 · Celebrating Every Child's Brightest Spark
+    </p>
+  </footer>
+
+  <!-- Interactive Animations, Balloons, Sound & Confetti Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const balloonContainer = document.getElementById('balloon-container');
+      const sparkleContainer = document.getElementById('sparkle-container');
+      const btnCelebrate = document.getElementById('btn-celebrate');
+      const toastEl = document.getElementById('celebrate-toast');
+      const toastMsgEl = document.getElementById('toast-message');
+
+      // Festive Rainbow, Pastel, Magenta, Teal, Sky Blue & Gold Palette
+      const festiveColors = [
+        '#FF595E', // Coral Red
+        '#FF924C', // Warm Orange
+        '#FFCA3A', // Sunshine Gold
+        '#8AC926', // Meadow Green
+        '#14B8A6', // Festive Teal
+        '#38BDF8', // Sky Blue
+        '#EC4899', // Vibrant Magenta
+        '#FBBF24'  // Metallic Amber Gold
+      ];
+
+      const toastMessages = [
+        "Welcome to Anugoonj 2026–27! 🎊",
+        "Celebrating our young Rainbowites! 🌟",
+        "Thank you for joining Play Way Wing, Dear Parents! 💛",
+        "Let's cheer for our little stars! 🎈✨"
+      ];
+      let toastIndex = 0;
+      let toastTimer = null;
+
+      function showToast(customText) {
+        if (!toastEl || !toastMsgEl) return;
+        toastMsgEl.textContent = customText || toastMessages[toastIndex % toastMessages.length];
+        toastIndex++;
+        toastEl.classList.remove('opacity-0', '-translate-y-4');
+        toastEl.classList.add('opacity-100', 'translate-y-0');
+
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.remove('opacity-100', 'translate-y-0');
+          toastEl.classList.add('opacity-0', '-translate-y-4');
+        }, 3200);
+      }
+
+      // 1. Generate Twinkling Background Sparkles
+      function createSparkles(count = 38) {
+        if (!sparkleContainer) return;
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement('span');
+          dot.className = 'sparkle-dot';
+          const size = Math.random() * 4 + 2; // 2px to 6px
+          dot.style.width = `${size}px`;
+          dot.style.height = `${size}px`;
+          dot.style.left = `${Math.random() * 100}%`;
+          dot.style.top = `${Math.random() * 100}%`;
+          dot.style.animationDuration = `${(Math.random() * 3 + 2).toFixed(2)}s`;
+          dot.style.animationDelay = `${(Math.random() * 4).toFixed(2)}s`;
+          fragment.appendChild(dot);
+        }
+        sparkleContainer.appendChild(fragment);
+      }
+
+      // 2. Spawn Realistic Glossy SVG Balloon
+      function spawnBalloon(extraBoost = false) {
+        if (!balloonContainer) return;
+        if (balloonContainer.childElementCount > 24 && !extraBoost) return;
+
+        const color = festiveColors[Math.floor(Math.random() * festiveColors.length)];
+        const size = Math.floor(Math.random() * 24) + 38; // 38px to 62px wide
+        const leftPercent = Math.random() * 94 + 1; // 1% to 95%
+        const duration = extraBoost
+          ? (Math.random() * 4 + 6).toFixed(2)
+          : (Math.random() * 7 + 11).toFixed(2);
+        const swayDuration = (Math.random() * 2 + 2.4).toFixed(2);
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'balloon-wrapper';
+        wrapper.style.left = `${leftPercent}%`;
+        wrapper.style.animationDuration = `${duration}s`;
+
+        const sway = document.createElement('div');
+        sway.className = 'balloon-sway';
+        sway.style.animationDuration = `${swayDuration}s`;
+
+        sway.innerHTML = `
+          <svg width="${size}" height="${Math.round(size * 1.45)}" viewBox="0 0 60 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 58 C27 65, 34 72, 29 86" stroke="rgba(255,255,255,0.45)" stroke-width="1.4" stroke-linecap="round"/>
+            <polygon points="30,55 26,60 34,60" fill="${color}" />
+            <ellipse cx="30" cy="29" rx="23" ry="27" fill="${color}" fill-opacity="0.88" />
+            <ellipse cx="22" cy="20" rx="6" ry="10" transform="rotate(-22 22 20)" fill="rgba(255,255,255,0.42)" />
+          </svg>
+        `;
+
+        wrapper.appendChild(sway);
+        balloonContainer.appendChild(wrapper);
+
+        wrapper.addEventListener('animationend', () => {
+          wrapper.remove();
+        });
+      }
+
+      // 3. Play Gentle Celebratory Chime (Tone.js)
+      async function playCelebrationChime() {
+        try {
+          if (typeof Tone === 'undefined') return;
+          await Tone.start();
+          const synth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: { type: 'triangle' },
+            envelope: { attack: 0.02, decay: 0.25, sustain: 0.1, release: 0.8 }
+          }).toDestination();
+          synth.volume.value = -10;
+          const now = Tone.now();
+          synth.triggerAttackRelease('C5', '16n', now);
+          synth.triggerAttackRelease('E5', '16n', now + 0.09);
+          synth.triggerAttackRelease('G5', '16n', now + 0.18);
+          synth.triggerAttackRelease('C6', '8n', now + 0.27);
+        } catch (err) {
+          // Ignore audio block if restricted by browser policy
+        }
+      }
+
+      // 4. Confetti Celebration Engine (canvas-confetti)
+      function fireWelcomeConfetti() {
+        if (typeof confetti !== 'function') return;
+
+        confetti({
+          particleCount: 75,
+          spread: 75,
+          origin: { y: 0.62 },
+          colors: festiveColors,
+          disableForReducedMotion: true
+        });
+
+        setTimeout(() => {
+          confetti({
+            particleCount: 45,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0, y: 0.68 },
+            colors: festiveColors,
+            disableForReducedMotion: true
+          });
+          confetti({
+            particleCount: 45,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1, y: 0.68 },
+            colors: festiveColors,
+            disableForReducedMotion: true
+          });
+        }, 280);
+      }
+
+      function fireGrandCelebration() {
+        playCelebrationChime();
+
+        if (typeof confetti === 'function') {
+          const end = Date.now() + 1400;
+          (function frame() {
+            confetti({
+              particleCount: 6,
+              angle: 60,
+              spread: 60,
+              origin: { x: 0, y: 0.7 },
+              colors: festiveColors
+            });
+            confetti({
+              particleCount: 6,
+              angle: 120,
+              spread: 60,
+              origin: { x: 1, y: 0.7 },
+              colors: festiveColors
+            });
+            if (Date.now() < end) {
+              requestAnimationFrame(frame);
+            }
+          })();
+
+          confetti({
+            particleCount: 95,
+            spread: 100,
+            scalar: 1.1,
+            origin: { y: 0.58 },
+            colors: festiveColors
+          });
+        }
+
+        for (let i = 0; i < 8; i++) {
+          setTimeout(() => spawnBalloon(true), i * 160);
+        }
+
+        showToast();
+      }
+
+      if (btnCelebrate) {
+        btnCelebrate.addEventListener('click', fireGrandCelebration);
+      }
+
+      // 5. Initialize Animations & Automatic Confetti on Load
+      createSparkles(38);
+
+      for (let i = 0; i < 7; i++) {
+        setTimeout(() => spawnBalloon(false), i * 450);
+      }
+
+      setInterval(() => spawnBalloon(false), 1800);
+
+      setTimeout(fireWelcomeConfetti, 350);
+    });
+  </script>
+</body>
+</html>
